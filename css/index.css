@@ -1,0 +1,236 @@
+/*公共样式*/
+*{padding: 0;margin: 0;}
+body{background: #000;min-width: 1200px;min-height: 600px;-webkit-font-smoothing:antialiased;font-family: 'WenQuanYi Micro Hei',Simsun, sans-serif;}
+.main{width: 1200px;height: 600px;background: #000 url(../img/bg.jpg);position: absolute;top: 0;bottom: 0;right: 0;left: 0;margin: auto;overflow: hidden;}
+/*粽子盒子*/
+.zz_box{width: 312px;height: 305px;position: absolute;top:184px;left: 700px;
+}
+/*粽子*/
+.zz{
+	width: 312px;
+	height: 305px;
+	background-image: url(../img/zz.png);
+	transition: all 1s;
+}
+.zz_out{
+	opacity: 0;
+	transform: scale(.5);
+}
+/*rope*/
+.rope_1{
+	width: 218px;
+	height: 180px;
+	background-image: url(../img/line_1.png);
+	position: absolute;
+	top: 123px;
+	left: 10px;
+	z-index: 20;
+	cursor: pointer;
+}
+.rope_2{
+	width: 219px;
+	height: 159px;
+	background-image: url(../img/line_2.png);
+	position: absolute;
+	top: 158px;
+	left: 10px;
+}
+.rope_3{
+	width: 264px;
+	height: 117px;
+	background-image: url(../img/line_3.png);
+	position: absolute;
+	top: 220px;
+	left: 10px;
+}
+.rope_4{
+	width: 288px;
+	height: 56px;
+	background-image: url(../img/line_4.png);
+	position: absolute;
+	top: 290px;
+	left: 10px;
+}
+.rope_0{
+	opacity: 0;
+
+}
+/*粽子肉*/
+.zzr{
+	width: 288px;
+	height: 242px;
+	background-image: url(../img/zzr_1.png);
+	background-size: 100%;
+	position: absolute;
+	top: 55px;
+	left: 34px;
+	z-index: 10;
+	opacity: 0;
+	transition: all 1s;
+	transform-origin: top center;
+}
+.zzr_in{
+	opacity: 1;
+}
+/*粽子叶*/
+.zzy_l{width: 114px;
+	height: 266px;
+	background-image: url(../img/leaf_left.png);
+	position: absolute;
+	top: -25px;
+	left: -15px;
+	z-index: 9;
+	opacity: 0;
+	transition: all 1s;
+	transform-origin: left center;
+}
+.zzy_l_in{
+	opacity: 1;
+	transform: rotate(-5deg);
+}
+.zzy_l_out{
+	opacity: 0;
+	transform: rotate(-15deg););
+}
+.zzy_r{width: 318px;
+	height: 338px;
+	background-image: url(../img/leaf_right.png);
+	position: absolute;
+	top: -20px;
+	left: 90px;
+	z-index: 11;
+	opacity: 0;
+	transition: all 1s;
+	transform-origin: right center;
+}
+.zzy_r_in{
+	opacity: 1;
+	transform: rotate(5deg);
+}
+.zzy_r_out{
+	opacity: 0;
+	transform: rotate(15deg);
+}
+
+.zzy_b{width: 618px;
+	height: 464px;
+	background-image: url(../img/leaf_expand.png);
+	position: absolute;
+	top: -25px;
+	left: -150px;
+	opacity: 0;
+	transition: all 1s;
+}
+.zzy_b_in{
+	opacity: 1;
+}
+/*吉祥如意*/
+.t_1{
+	width: 180px;
+	height: 100px;
+	background-image: url(../img/t_jixiang.png);
+	position: absolute;
+	left: 75px;
+	top: 130px;
+	z-index: 10;
+	-webkit-transform-origin: center center;
+			transform-origin: center center;
+	-webkit-transform: scale(.8);
+			transform: scale(.8);
+	opacity: 0;
+	transition: all 1s;
+}
+.t_2{
+	width: 180px;
+	height: 100px;
+	background-image: url(../img/t_ruyi.png);
+	position: absolute
+	;left: 75px;
+	top: 130px;
+	z-index: 10;
+	-webkit-transform-origin: center center;
+			transform-origin: center center;
+	-webkit-transform: scale(.8);
+			transform: scale(.8);
+	opacity: 0;
+	transition: all 1s;
+}
+.t_in{
+	opacity: 1;
+}
+/*祝福语*/
+.text{position: absolute;
+	width: 400px;
+	height: 370px;
+	left: 180px;
+	top: 140px;
+	font-size: 14px;
+	line-height: 20px;
+	color: #333;
+}
+.text .text1{width: 400px;
+	height: 240px;
+	background: url(../img/caption.png) no-repeat;
+	margin-left: 20px;
+	opacity: 0;
+	transition: all 1s;
+}
+.text .p1{
+	width: 400px;
+	margin-top: 10px;
+	margin-left: 20px;
+	opacity: 0;
+	transition: all 1s 0.5s;
+}
+.text .p2{
+	width: 400px;
+	margin-top: 10px;
+	margin-left: 20px;
+	opacity: 0;
+	transition: all 1s 1s;
+}
+.text .p3{
+	width: 400px;
+	margin-top: 10px;
+	margin-left: 20px;
+	text-align: right;
+	opacity: 0;
+	transition: all 1s 1.5s;
+}
+.text_in .text1,
+.text_in .p1,
+.text_in .p2,
+.text_in .p3{
+	opacity: 1;
+	margin-left: 0;
+}
+/*动画样式*/
+@-webkit-keyframes rock{
+	0%{ transform: rotate(0deg); }
+	10%{ transform: rotate(3deg); }
+	20%{ transform: rotate(-3deg); }
+	30%{ transform: rotate(2deg); }
+	40%{ transform: rotate(-2deg); }
+	50%{ transform: rotate(1deg); }
+	60%{ transform: rotate(-1deg); }
+	70%{ transform: rotate(0deg); }
+	100%{ transform: rotate(0deg); }
+}
+.zz_box_rock{
+		animation: rock 2s infinite;
+}
+@-webkit-keyframes text0{
+	0%{ transform: rotate(0deg); }
+	10%{ transform: rotate(3deg); }
+	20%{ transform: rotate(-3deg); }
+	30%{ transform: rotate(2deg); }
+	40%{ transform: rotate(-2deg); }
+	50%{ transform: rotate(1deg); }
+	60%{ transform: rotate(-1deg); }
+	70%{ transform: rotate(0deg); }
+	100%{ transform: rotate(0deg); }
+}
+.text .text1{
+		animation: text0 2s infinite;
+}
+

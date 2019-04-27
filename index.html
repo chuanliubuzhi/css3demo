@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>端午粽子</title>
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<div class="main">
+		<div class="zz_box" id="zz_box">
+			<div class="zz" id="zz"></div>
+			<div class="rope_1" id="rope_1"></div>
+			<div class="zzr" id="zzr"></div>
+			<div class="zzy_l" id="zzy_l"></div>
+			<div class="zzy_r" id="zzy_r"></div>
+			<div class="zzy_b" id="zzy_b"></div>
+			<div class="t_1" id="t_1"></div>
+			<div class="t_2" id="t_2"></div>
+		</div>
+		<div class="text" id="text">
+			<div class="text1" id="text1"></div>
+			<div class="p1">亲爱的小伙伴们：</div>
+			<div class="p2">在端午来临之际，宝宝给大家送来心意了，祝大家好运	、吉祥、如意、幸福、快快乐乐每一天，大伙永远和你相伴！</div>
+			<div class="p3">小川</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		// 获取DOM 对象
+		var sun = function (id) {
+			return document.getElementById(id);
+		}
+
+		// 时间轴对象构造器
+		var TimeLine = function () {
+			this.order = [];
+			this.add = function (timeout , func , log) {
+				this.order.push({
+					timeout:timeout,
+					func:func,
+					log:log,
+				});
+			}
+			// 参数ff快进
+			this.start = function(ff) {
+				for ( s in this.order) {
+					(function (me) {
+						var fn = me.func;
+						var timeout = me.timeout;
+						var log = me.log;
+						timeout = Math.max(timeout - (ff||0),0);
+
+						setTimeout(fn,timeout);
+						setTimeout(function () {
+							console.log('time->',timeout,'log->',log)
+						},timeout);
+					})(this.order[s])
+				}
+			}
+		}
+
+		//初始的场景 
+		var s1 = new TimeLine();
+		// 粽子展开的场景
+		var s2 = new TimeLine();
+		// 文字晃动
+		var s3 = new TimeLine();
+
+		//S1
+		s1.add(1,function(){
+			sun('zz_box').className = 'zz_box_rock zz_box'
+			sun('rope_1').onclick = function() {
+				s2.start();
+				sun('rope_1').onclick = function () {
+					
+				}
+			}
+		});
+
+		//S2
+		s2.add(1,function () {
+			sun('zz_box').className = 'zz_box';//粽子停止抖动
+			sun('text').className = 'text text_in';//粽子退场
+			sun('')
+
+		})
+		s2.add(100,function () {
+			sun('rope_1').className = 'rope_2';//绳子逐渐揭开
+		})
+		s2.add(500,function () {
+			sun('rope_1').className = 'rope_3';//绳子逐渐揭开
+		})	
+		s2.add(1000,function () {
+			sun('rope_1').className = 'rope_4';//绳子逐渐揭开
+		})	
+		s2.add(2000,function () {
+			sun('rope_1').className = 'rope_0';//绳子消失
+			sun('zz').className = 'zz zz_out';//粽子退场
+			sun('zzr').className = 'zzr zzr_in';//粽子肉进场
+			sun('t_1').className = 't_1 t_in';//文字吉祥进场
+			sun('t_2').className = 't_2 t_mirronr0';//文字吉祥进场
+			sun('zzy_l').className = 'zzy_l zzy_l_in';//粽叶左进场
+			sun('zzy_r').className = 'zzy_r zzy_r_in';//粽叶右进场
+		})		
+		s2.add(3000,function () {
+			sun('zzy_l').className = 'zzy_l zzy_l_in zzy_l_out';//粽叶左离场
+			sun('zzy_r').className = 'zzy_r zzy_r_in zzy_r_out';//粽叶右离场
+			sun('zzy_b').className = 'zzy_b zzy_b_in';//粽叶底进场
+			sun('text1').className = 'text1 text0';
+		})
+
+		s1.start(2000);
+	</script>
+</body>
+</html>
